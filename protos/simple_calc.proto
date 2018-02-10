@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package simplecalc;
+
+option java_multiple_files = true;
+option java_package = "me.caplis.simplecalc";
+option java_outer_classname = "SimpleCalcProto";
+
+service SimpleCalc {
+  rpc Add(Operands) returns (Result) {}
+  rpc Sub(Operands) returns (Result) {}
+  rpc Mult(Operands) returns (Result) {}
+  rpc Div(Operands) returns (Result) {}
+}
+
+message Operands {
+  repeated float operands = 1;
+}
+
+message Result {
+  float value = 1;
+}
